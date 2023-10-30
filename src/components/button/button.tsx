@@ -3,8 +3,9 @@ type props = {
  };
  export function Footer ({title}: props){
    return(
-   <header>
+    <header>
      <h1>{title} </h1>
    </header>
+   
    );
  }
