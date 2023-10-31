@@ -1,32 +1,42 @@
-[
-  {
-    id: 1,
-    name: "Bertin Osborne",
-    status: "Alive",
-    profession: "Youtuber",
-    twitter: "@osbourne",
-    picture: "bertin.jpg",
-    alternativeText: "Osbourne pointing at you",
-    selected: true,
-  },
-  {
-    name: "The Farytale",
-    status: "RIP",
-    profession: "Influencer",
-    twitter: "pending",
-    picture: "fary.jpg",
-    alternativeText: "The Fary pointing at you",
-    id: 2,
-    selected: false,
-  },
-  {
-    id: 3,
-    name: "Julius Churchs",
-    status: "Alive",
-    profession: "Java developer",
-    twitter: "@julius_churchs",
-    picture: "julio.jpg",
-    alternativeText: "Churchs pointing at you",
-    selected: true,
-  },
-];
+
+import { Gentle } from '../../models/type'
+type Props = {
+  theGentlemans: Gentle [];
+};
+
+export const Gentlemans = ({theGentlemans}: Props) => {
+
+  return(
+      <li className="gentleman">
+         {theGentlemans.map(Element=>( 
+        <div className="gentleman__avatar-container">
+          <img
+            className="gentleman__avatar"
+            src={Element.picture}
+            alt="The Fary pointing at you"
+          />
+          <span className="gentleman__initial">{Element.name.split('')[0]}</span>
+        </div>))}
+        <div className="gentleman__data-container">
+          {theGentlemans.map(Element=>( 
+          <h2 className="gentleman__name">{Element.name}</h2>))}
+          <ul className="gentleman__data-list">
+            <li className="gentleman__data">
+              <span className="gentleman__data-label">Profession:</span>
+              Influencer
+            </li>
+            <li className="gentleman__data">
+              <span className="gentleman__data-label">Status:</span> RIP
+            </li>
+            <li className="gentleman__data">
+              <span className="gentleman__data-label">Twitter:</span> Pending
+            </li>
+          </ul>
+        </div>
+        <i className="icon gentleman__icon fas fa-check"></i>
+        <i
+          className="icon gentleman__icon gentleman__icon--delete fas fa-times"
+        ></i>
+      </li>
+  )
+  }
